@@ -284,6 +284,13 @@ textarea {
   font-size: 0.82rem;
 }
 
+.credit {
+  margin: 12px 4px 0;
+  color: rgba(34, 34, 34, 0.68);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
 .ok,
 .error {
   min-height: 1.2em;
