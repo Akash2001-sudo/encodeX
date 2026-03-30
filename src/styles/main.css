@@ -73,9 +73,154 @@ body::after {
   bottom: 0;
   height: 42vh;
   background:
+    linear-gradient(180deg, transparent 0 18%, rgba(238, 245, 245, 0.22) 18.5%, transparent 20.5%),
+    linear-gradient(180deg, transparent 0 28%, rgba(240, 246, 245, 0.14) 28.5%, transparent 30.25%),
     radial-gradient(140% 100% at 50% 100%, var(--foam) 0 24%, transparent 24.5%),
     radial-gradient(120% 90% at 15% 100%, rgba(245, 248, 247, 0.2) 0 18%, transparent 18.5%),
     radial-gradient(130% 92% at 85% 100%, rgba(245, 248, 247, 0.2) 0 18%, transparent 18.5%);
+}
+
+.scene-bird {
+  position: fixed;
+  left: 68%;
+  top: 18vh;
+  width: 26px;
+  height: 10px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.42;
+  animation: fly-bird 22s linear infinite;
+}
+
+.scene-bird::before,
+.scene-bird::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  width: 12px;
+  height: 6px;
+  border-top: 1.6px solid rgba(86, 105, 114, 0.7);
+}
+
+.scene-bird::before {
+  left: 0;
+  border-radius: 12px 12px 0 0;
+  transform: rotate(-12deg);
+}
+
+.scene-bird::after {
+  right: 0;
+  border-radius: 12px 12px 0 0;
+  transform: rotate(12deg);
+}
+
+.scene-bird-mid {
+  left: 18%;
+  top: 24vh;
+  transform: scale(0.86);
+  opacity: 0.32;
+  animation-duration: 28s;
+  animation-delay: -8s;
+}
+
+.scene-bird-far {
+  left: 84%;
+  top: 12vh;
+  transform: scale(0.64);
+  opacity: 0.24;
+  animation-duration: 34s;
+  animation-delay: -15s;
+}
+
+.scene-boat {
+  position: fixed;
+  left: 12%;
+  top: 49.2vh;
+  width: 126px;
+  height: 84px;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(64, 86, 95, 0.18));
+  animation: drift-boat 34s ease-in-out infinite alternate;
+}
+
+.scene-boat::before,
+.scene-boat::after {
+  content: "";
+  position: absolute;
+}
+
+.scene-boat::before {
+  left: 42px;
+  bottom: 24px;
+  width: 42px;
+  height: 45px;
+  background: #fffaf2;
+  clip-path: polygon(0 100%, 100% 92%, 18% 0);
+  border-left: 3px solid rgba(79, 88, 92, 0.7);
+}
+
+.scene-boat::after {
+  left: 21px;
+  bottom: 12px;
+  width: 78px;
+  height: 21px;
+  background: linear-gradient(180deg, #7a5c47, #5f4637);
+  border-radius: 2px 2px 12px 12px;
+  clip-path: polygon(4% 22%, 96% 22%, 82% 100%, 18% 100%);
+  box-shadow: 0 24px 0 -17px rgba(240, 246, 247, 0.75);
+}
+
+.scene-boat-small {
+  left: 62%;
+  top: 50.1vh;
+  width: 78px;
+  height: 52px;
+  opacity: 0.72;
+  filter: drop-shadow(0 3px 4px rgba(64, 86, 95, 0.12));
+  animation-duration: 46s;
+}
+
+.scene-boat-small::before {
+  left: 26px;
+  bottom: 16px;
+  width: 24px;
+  height: 28px;
+  border-left-width: 2px;
+}
+
+.scene-boat-small::after {
+  left: 12px;
+  bottom: 8px;
+  width: 48px;
+  height: 14px;
+  box-shadow: 0 16px 0 -12px rgba(240, 246, 247, 0.62);
+}
+
+.scene-boat-tiny {
+  left: 84%;
+  top: 50.6vh;
+  width: 52px;
+  height: 34px;
+  opacity: 0.56;
+  filter: drop-shadow(0 2px 3px rgba(64, 86, 95, 0.1));
+  animation-duration: 58s;
+}
+
+.scene-boat-tiny::before {
+  left: 17px;
+  bottom: 10px;
+  width: 16px;
+  height: 18px;
+  border-left-width: 2px;
+}
+
+.scene-boat-tiny::after {
+  left: 8px;
+  bottom: 5px;
+  width: 31px;
+  height: 10px;
+  box-shadow: 0 10px 0 -8px rgba(240, 246, 247, 0.5);
 }
 
 @media (min-width: 720px) {
@@ -314,6 +459,33 @@ code {
   font-size: 0.88em;
 }
 
+@keyframes drift-boat {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(28px);
+  }
+}
+
+@keyframes fly-bird {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(18px) translateY(-4px);
+  }
+  50% {
+    transform: translateX(34px) translateY(2px);
+  }
+  75% {
+    transform: translateX(52px) translateY(-3px);
+  }
+  100% {
+    transform: translateX(72px) translateY(1px);
+  }
+}
+
 @media (max-width: 720px) {
   body::before {
     opacity: 0.8;
@@ -330,6 +502,42 @@ code {
     border-radius: 20px;
   }
 
+  .scene-boat {
+    left: 10%;
+    top: 49.8vh;
+    animation: drift-boat-mobile 34s ease-in-out infinite alternate;
+  }
+
+  .scene-bird {
+    left: 74%;
+    top: 16vh;
+    transform: scale(0.9);
+  }
+
+  .scene-bird-mid {
+    left: 12%;
+    top: 22vh;
+    transform: scale(0.74);
+  }
+
+  .scene-bird-far {
+    left: 78%;
+    top: 10vh;
+    transform: scale(0.56);
+  }
+
+  .scene-boat-small {
+    left: 58%;
+    top: 50.4vh;
+    animation-duration: 46s;
+  }
+
+  .scene-boat-tiny {
+    left: 80%;
+    top: 50.8vh;
+    animation-duration: 58s;
+  }
+
   .converter-panel {
     padding: 14px;
   }
@@ -337,5 +545,14 @@ code {
   .mode-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@keyframes drift-boat-mobile {
+  0% {
+    transform: translateX(0) scale(0.82);
+  }
+  100% {
+    transform: translateX(18px) scale(0.82);
   }
 }
