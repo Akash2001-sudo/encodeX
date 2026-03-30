@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>UUID String <-> Base64 Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./src/styles/main.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <h1>UUID String &lt;-&gt; Base64 Converter</h1>
+      <p class="app-subtitle">Convert UUID and Base64.</p>
+    </header>
+    <section class="workspace">
+      <div class="mode-row">
+        <label class="toggle">
+          <input type="checkbox" id="urlsafe" />
+          <span>URL-safe</span>
+        </label>
+        <p class="mode-note">Uses <code>-</code> and <code>_</code>.</p>
+      </div>
+
+      <div class="grid-2">
+        <section class="converter-panel">
+          <div class="row">
+            <label for="uuid">UUID string</label>
+            <input id="uuid" type="text" placeholder="e.g., 0773711e-d3f6-4003-aa8d-db585e3abda4" />
+            <div class="action-row">
+              <button class="btn primary" id="encodeBtn">Encode to Base64</button>
+              <button class="btn" id="copyUuid">Copy</button>
+            </div>
+            <div id="uuidMsg" class="ok"></div>
+          </div>
+        </section>
+
+        <section class="converter-panel">
+          <div class="row">
+            <label for="b64">Base64</label>
+            <textarea id="b64" rows="4" placeholder="e.g., HnFzB/bTA0CqjdtYXjq9pA=="></textarea>
+            <div class="action-row">
+              <button class="btn primary" id="decodeBtn">Decode to UUID</button>
+              <button class="btn" id="copyB64">Copy</button>
+            </div>
+            <div id="b64Msg" class="ok"></div>
+          </div>
+        </section>
+      </div>
+
+      <p class="note">
+        Converts UUID bytes.
+      </p>
+    </section>
+  </main>
+
+  <script src="./src/scripts/app.js"></script>
+</body>
+</html>
