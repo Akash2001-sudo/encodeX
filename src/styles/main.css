@@ -85,14 +85,14 @@ body::after {
 }
 
 .app-shell {
-  max-width: 1120px;
+  max-width: 980px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
 .app-header {
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .eyebrow {
@@ -111,25 +111,25 @@ body::after {
 }
 
 h1 {
-  margin: 14px 0 0;
-  max-width: 780px;
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  margin: 0;
+  max-width: 640px;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   font-weight: 700;
 }
 
 .app-subtitle {
-  margin: 14px 0 0;
-  max-width: 620px;
+  margin: 6px 0 0;
+  max-width: 420px;
   color: var(--text-muted);
-  font-size: 1.08rem;
+  font-size: 0.92rem;
 }
 
 .workspace {
-  padding: 22px;
+  padding: 18px;
   border: 1px solid var(--border);
-  border-radius: 32px;
+  border-radius: 26px;
   background: rgba(246, 239, 229, 0.94);
   box-shadow: 0 14px 40px rgba(71, 92, 101, 0.14);
 }
@@ -139,9 +139,9 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 20px;
-  padding: 16px 18px;
-  border-radius: 22px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: 18px;
   background: var(--surface-soft);
   border: 1px solid #e3d8ca;
 }
@@ -151,7 +151,7 @@ h1 {
   align-items: center;
   gap: 10px;
   color: var(--text);
-  font-size: 0.98rem;
+  font-size: 0.88rem;
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0;
@@ -168,13 +168,13 @@ h1 {
 .mode-note {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 14px;
 }
 
 @media (min-width: 900px) {
@@ -184,21 +184,21 @@ h1 {
 }
 
 .converter-panel {
-  padding: 24px;
+  padding: 18px;
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 18px;
   background: rgba(252, 248, 243, 0.98);
   box-shadow: 0 6px 18px rgba(71, 92, 101, 0.08);
 }
 
 .row {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 label {
   color: var(--text);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -207,13 +207,13 @@ label {
 input[type="text"],
 textarea {
   width: 100%;
-  padding: 15px 16px;
+  padding: 13px 14px;
   border: 1px solid #d7cec4;
-  border-radius: 16px;
+  border-radius: 14px;
   background: #fffdf9;
   color: var(--text);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.97rem;
+  font-size: 0.9rem;
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
@@ -230,24 +230,24 @@ textarea:focus {
 }
 
 textarea {
-  min-height: 132px;
+  min-height: 110px;
   resize: vertical;
 }
 
 .action-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .btn {
-  min-height: 46px;
-  padding: 12px 18px;
+  min-height: 40px;
+  padding: 10px 14px;
   border: 1px solid #d7cec4;
   border-radius: 999px;
   background: #fbf6f0;
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 0.86rem;
   font-weight: 700;
   cursor: pointer;
   transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
@@ -275,19 +275,19 @@ textarea {
 }
 
 .note {
-  margin: 18px 0 0;
-  padding: 18px 20px;
-  border-radius: 20px;
+  margin: 14px 0 0;
+  padding: 13px 14px;
+  border-radius: 16px;
   background: #f2ebe2;
   border: 1px solid #ded2c4;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
 }
 
 .ok,
 .error {
   min-height: 1.2em;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
@@ -319,12 +319,12 @@ code {
   }
 
   .workspace {
-    padding: 16px;
-    border-radius: 24px;
+    padding: 14px;
+    border-radius: 20px;
   }
 
   .converter-panel {
-    padding: 18px;
+    padding: 14px;
   }
 
   .mode-row {
