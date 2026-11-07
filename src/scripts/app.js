@@ -135,18 +135,58 @@ function decodeToUuidString() {
   }
 }
 
+// Copy feedback helper
+async function handleCopy(buttonId, inputId) {
+  const btn = $(buttonId);
+  const input = $(inputId);
+  if (!btn || !input) return;
+
+  try {
+    await navigator.clipboard.writeText(input.value);
+    const span = btn.querySelector("span") || btn;
+    const originalText = span.textContent;
+    if (originalText === "Copied!") return;
+
+    span.textContent = "Copied!";
+    btn.classList.add("btn-copied");
+    setTimeout(() => {
+      span.textContent = originalText;
+      btn.classList.remove("btn-copied");
+    }, 1500);
+  } catch (_err) {
+    // Clipboard permission denied or unsupported
+  }
+}
+
+// Wire core listeners
 $("encodeBtn").addEventListener("click", encodeUuidString);
 $("decodeBtn").addEventListener("click", decodeToUuidString);
 $("uuid").addEventListener("input", encodeUuidString);
 $("b64").addEventListener("input", decodeToUuidString);
+$("urlsafe").addEventListener("change", encodeUuidString);
 
-$("copyUuid").addEventListener("click", async () => {
-  await navigator.clipboard.writeText($("uuid").value);
-});
+$("copyUuid").addEventListener("click", () => handleCopy("copyUuid", "uuid"));
+$("copyB64").addEventListener("click", () => handleCopy("copyB64", "b64"));
 
-$("copyB64").addEventListener("click", async () => {
-  await navigator.clipboard.writeText($("b64").value);
-});
+// Theme Toggle
+const themeToggle = $("themeToggle");
+if (themeToggle) {
+  const savedTheme = localStorage.getItem("encodex-theme");
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }
 
+  themeToggle.addEventListener("click", () => {
+    const isDark =
+      document.documentElement.getAttribute("data-theme") === "dark" ||
+      (!document.documentElement.getAttribute("data-theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const nextTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("encodex-theme", nextTheme);
+  });
+}
+
+// Initialize default example
 $("uuid").value = "0773711e-d3f6-4003-aa8d-db585e3abda4";
 encodeUuidString();
